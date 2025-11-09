@@ -1,10 +1,10 @@
 # ECOmpile
 
-ECOmpile is a research and productization effort that turns **self-assessing neural systems** into **hybrid neural‑code stacks**. The repository curates the source exports (`1.md`, `2.md`), adds structured documentation, and outlines SDK prototypes so the material can be shared as a cohesive public repo without touching the original files.
+ECOmpile is a research and productization effort that turns **self-assessing neural systems** into **hybrid neural‑code stacks**. The repository contains structured documentation and outlines SDK prototypes so the material can be shared as a cohesive public repository.
 
-Think of it as an AI refinery: models improvise, measure what works best, and then forge those reliable motifs into lean code that anyone can inspect. The result is software that stays creative when it needs to be, yet behaves like dependable infrastructure where it counts.
+Think of it as an AI refinery: models improvise, measure what works best, and then forge those reliable motifs into lean code that anyone can inspect. The result is software that stays creative when it needs to be, yet behaves like dependable infrastructure where it counts, not to mention the gains in speed, reliability and the ability to educate, to define, display and reproduce certain actions in a clear, transparent manner.
 
-Public stakeholders—from curious readers to CTOs—can explore this repo to understand why ECOmpile matters for cost, safety, transparency, and sustainability, all without parsing multi-thousand-line transcripts. Every curated document points back to the original exports, so nothing is lost and everything stays verifiable.
+Public stakeholders — from curious readers to CTOs — can explore this repo to understand why ECOmpile matters for cost, safety, transparency, and sustainability, all without parsing multi-thousand-line transcripts. Every curated document points back to the original exports, so nothing is lost and everything stays verifiable.
 
 > **All Rights Reserved — © 2025 Slavko Stojnić**
 
@@ -12,9 +12,8 @@ Public stakeholders—from curious readers to CTOs—can explore this repo to un
 
 ## Why this repo exists
 
-- Preserve the long-form source documents exactly as authored.
-- Offer a navigable, citation-friendly summary for stakeholders who do not want to parse multi-thousand-line transcripts.
-- Capture governance, roadmap, and SDK guidance so collaborators can extend ECOmpile without rewriting the original work.
+- Offer a navigable, citation-friendly summary for stakeholders.
+- Capture governance, roadmap, and SDK guidance so utility of ECOmpile can be achieved.
 
 ---
 
@@ -22,7 +21,6 @@ Public stakeholders—from curious readers to CTOs—can explore this repo to un
 
 ```
 .
-├── 1.md / 2.md         # Original exports (untouched)
 ├── README.md           # You are here
 ├── docs/               # Curated documentation layers
 │   ├── overview.md
@@ -58,14 +56,16 @@ Public stakeholders—from curious readers to CTOs—can explore this repo to un
 
 ## Document provenance
 
-- `1.md` and `2.md` remain byte-for-byte identical to the supplied material (they stay in the working tree but are gitignored so they never leave your machine unless you explicitly add them). Any legacy references to earlier working titles inside those exports should be read as “ECOmpile.”
-- All derivative documents quote, summarize, or reorganize concepts but **never modify** the originals. When referencing a section, the curated docs call out the line anchors (e.g., `1.md:285` for the public narrative).
+- All derivative documents quote, summarize, or reorganize concepts but **never modify** the originals.
+When referencing a section, the curated docs call out the line anchors (e.g., `1.md:285` for the public narrative).
 
 ---
 
 ## License
 
-This repository is distributed for archival and review purposes only.
+This repository is distributed for archival and review purposes only. 
+All offers of collaboration and subsidy are more than welcome. 
+e-mail: stojnic.slavko@gmail.com 
 
 ```
 © 2025 Slavko Stojnić — All Rights Reserved.

@@ -1,10 +1,10 @@
 # ECOmpile
 
-ECOmpile is a research and productization effort that turns **self-assessing neural systems** into **hybrid neural‑code stacks**. The repository contains structured documentation and outlines SDK prototypes so the material can be shared as a cohesive public repository.
+ECOmpile is a project in the R&D phase that aims to turn **self-assessing neural systems** (with a fair bit of HITL) into **hybrid neural‑code stacks**. The repository contains structured documentation and outlines SDK prototypes so the material can be shared as a cohesive public repository.
 
-Think of it as an AI refinery: models improvise, measure what works best, and then forge those reliable motifs into lean code that anyone can inspect. The result is software that stays creative when it needs to be, yet behaves like dependable infrastructure where it counts, not to mention the gains in speed, reliability and the ability to educate, to define, display and reproduce certain actions in a clear, transparent manner.
+It's an AI refinery: models improvise, gather best outcomes and then forge those beneficial elements into lean code that can be inspected, accurately, swiftly and (cost-)effectively reproduced. The result is software that stays creative when it needs to be, yet behaves like dependable infrastructure where it counts, not to mention the gains in speed, reliability and the ability to educate, to define, display and reproduce certain actions in a clear, transparent manner.
 
-Public stakeholders — from curious readers to CTOs — can explore this repo to understand why ECOmpile matters for cost, safety, transparency, and sustainability, all without parsing multi-thousand-line transcripts. Every curated document points back to the original exports, so nothing is lost and everything stays verifiable.
+Public stakeholders — from curious readers to CTOs — can explore this repository to understand why ECOmpile matters for cost, safety, transparency, sustainability, robust and reliable outcomes. 
 
 > **All Rights Reserved — © 2025 Slavko Stojnić**
 
@@ -12,8 +12,9 @@ Public stakeholders — from curious readers to CTOs — can explore this repo t
 
 ## Why this repo exists
 
-- Offer a navigable, citation-friendly summary for stakeholders.
-- Capture governance, roadmap, and SDK guidance so utility of ECOmpile can be achieved.
+- To inform stakeholders and provide a citation-friendly summary.
+- To enlist backing for a high-potential, indispensible concept. 
+- To document governance, a roadmap and SDK guidance so that the value of ECOmpile can be actualized.
 
 ---
 

@@ -30,9 +30,9 @@
 
 ## 1. Preface and Provenance
 
-This document represents the complete, synthesized publication of ECOmpile—a self-fortifying artificial intelligence framework developed through iterative refinement and cross-validation across multiple research and engineering perspectives.
+This document represents the complete, synthesized publication of ECOmpile—a self-fortifying AI framework developed through iterative refinement and cross-validation across multiple research and engineering perspectives.
 
-ECOmpile originated from the core observation that neural networks, despite their probabilistic nature, encode stable and reproducible logic patterns within their activation distributions. By systematizing the extraction, validation, and formalization of these patterns as executable code, we bridge the historical divide between connectionist learning and symbolic computation.
+ECOmpile originated from the core necessity for neural networks to, despite their probabilistic nature, encode stable and reproducible logic patterns with absolute consistency and greatly reduced resource waste. By creating a system for extraction, validation, and formalization of these patterns as executable code, ECOmpile bridges the historical divide between connectionist learning and symbolic computation. 
 
 This publication consolidates:
 
@@ -43,7 +43,7 @@ This publication consolidates:
 - Comprehensive governance and compliance frameworks aligned with ISO/IEC 42001 and EU AI Act requirements
 - Environmental impact quantification and sustainability accounting
 - Extended research horizons including multimodal, quantum, and federated extensions
-- Detailed case studies from pilot deployments
+- Detailed case studies from pilot deployments [
 - Complete reference materials and appendices
 
 All claims presented herein are grounded in established machine learning literature, validated through prototype implementation, and presented without speculative overstatement. Where projections are made, they are labeled as such and accompanied by methodology and assumptions.

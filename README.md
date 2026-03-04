@@ -29,6 +29,16 @@ Public stakeholders — from curious readers to CTOs — can explore this reposi
 │   ├── roadmap.md
 │   ├── governance.md
 │   └── references.md
+├── cases/              # Raw interaction traces used for kernel compilation
+│   └── 2026-03-04_unknown-contact-sid-removal/
+│       └── conversation.md
+├── kernels/            # Compiled deterministic kernels + fast index
+│   ├── index.tsv
+│   └── windows/acl/
+│       └── SID_REMOVE_SYSTEM_WIDE_KNOWN.kernel.md
+├── engine-concept/     # Routing logic notes
+│   └── kernel-routing.md
+├── CONTRIBUTING_KERNELS.md
 ├── sdk/                # Early SDK notes & executable examples
 │   ├── README.md
 │   └── examples/
@@ -49,7 +59,9 @@ Public stakeholders — from curious readers to CTOs — can explore this reposi
 4. **docs/governance.md** – Risk, compliance, and environmental framing.
 5. **docs/references.md** – Citation list for every numeric claim surfaced in the curated docs.
 6. **docs/public_release.md** – Single-file dossier ready for publication.
-7. **sdk/examples/** – Lightweight Python references that illustrate trace capture, symbolic distillation, and benchmarking flows.
+7. **cases/** + **kernels/** – Real case logs paired with compiled kernel artifacts.
+8. **engine-concept/kernel-routing.md** – Intent→kernel routing and stop-condition model.
+9. **sdk/examples/** – Lightweight Python references that illustrate trace capture, symbolic distillation, and benchmarking flows.
 
 > **Diagram note:** GitHub renders the Mermaid diagrams inline, but if you need static images run `npx @mermaid-js/mermaid-cli -i docs/architecture.md -o diagrams/architecture.png` (or a similar `mmdc` command) and attach the PNGs to releases.
 
@@ -59,6 +71,27 @@ Public stakeholders — from curious readers to CTOs — can explore this reposi
 
 - All derivative documents quote, summarize, or reorganize concepts but **never modify** the originals.
 When referencing a section, the curated docs call out the line anchors (e.g., `1.md:285` for the public narrative).
+
+---
+
+## Case-to-Kernel Seed (New)
+
+This repository now includes a concrete seed example of ECOmpile compilation:
+
+1. **Raw case**:
+- `cases/2026-03-04_unknown-contact-sid-removal/conversation.md`
+
+2. **Compiled kernel**:
+- `kernels/windows/acl/SID_REMOVE_SYSTEM_WIDE_KNOWN.kernel.md`
+
+3. **Fast lookup index**:
+- `kernels/index.tsv`
+
+4. **Routing model**:
+- `engine-concept/kernel-routing.md`
+
+Contribution protocol:
+- `CONTRIBUTING_KERNELS.md`
 
 ---
 

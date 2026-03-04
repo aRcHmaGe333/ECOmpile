@@ -1,0 +1,2 @@
+﻿KERNEL_ID	PLATFORM	CONTEXT	INTENT_TOKENS	PRIMITIVE
+SID_REMOVE_SYSTEM_WIDE_KNOWN	windows	powershell|cmd	sid remove system-wide known-sid permissions	icacls /remove *SID /t /c /q

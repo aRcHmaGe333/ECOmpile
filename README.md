@@ -16,6 +16,16 @@ Public stakeholders — from curious readers to CTOs — can explore this reposi
 - To enlist backing for a high-potential, indispensible concept. 
 - To document governance, a roadmap and SDK guidance so that the value of ECOmpile can be actualized.
 
+## 5-Second Model
+
+```mermaid
+flowchart TD
+    A[Prompt] --> B[Intent Match]
+    B --> C{Kernel Hit}
+    C -->|Yes| D[Emit Primitive]
+    C -->|No| E[Normal Reasoning Path]
+```
+
 ---
 
 ## Repository layout

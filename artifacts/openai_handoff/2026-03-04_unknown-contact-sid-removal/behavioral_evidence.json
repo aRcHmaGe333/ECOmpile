@@ -1,0 +1,14 @@
+{
+  "case_id": "2026-03-04_unknown-contact-sid-removal",
+  "kernel_id": "SID_REMOVE_SYSTEM_WIDE_KNOWN",
+  "introspection_level": "behavioral_only",
+  "requires_internal_telemetry_for_true_introspection": true,
+  "intent_hit": true,
+  "failure_exchange_index": 2,
+  "correction_exchange_index": 3,
+  "failure_excerpt": "Yes. If those are **orphan SIDs** (accounts that no longer exist), you can remove them **system-wide from file permissions**. Windows itself doesn\u2019t provide a single GUI button for that, but a command can strip unresolved SIDs from all ACLs.\nOutcome: every file/folder that references a deleted account loses that dead permission entry.\nRun **PowerShell as Administrator** and execute:\n```\npowershell -Command \"\n$orphan = Get-Acl C:\\ | Select -ExpandProperty Access | Where-Object { $_.IdentityReference -match 'S-1-5-' } | Select -Expand IdentityReference -Unique",
+  "correction_excerpt": "Thought for 25s\nNo \u2014 **don\u2019t run that snippet**. I\u2019m not confident it\u2019s correct, and it _can_ do the wrong thing (and it also wouldn\u2019t reliably find \u201cunknown contacts\u201d system-wide). Here\u2019s the safe, Win11-Admin-PowerShell way: **audit first**, then (optionally) remove only entries that are _provably unresolvable SIDs_, with an ACL backup you can restore.\n```\n# Orphan-SID Cleaner (Win11, PowerShell as Admin)\n# - First run: AUDIT ONLY (no changes)\n# - To actually remove: set $DO_FIX = $true",
+  "strict_behavioral_evidence_ok": true,
+  "source_case_file": "C:\\Users\\archm\\code\\ECOmpile\\repo\\cases\\2026-03-04_unknown-contact-sid-removal\\conversation.md",
+  "source_spec_file": "C:\\Users\\archm\\code\\ECOmpile\\repo\\cases\\2026-03-04_unknown-contact-sid-removal\\openai_handoff_spec.json"
+}

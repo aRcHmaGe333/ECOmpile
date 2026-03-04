@@ -38,7 +38,12 @@ flowchart TD
 │   ├── architecture.md
 │   ├── roadmap.md
 │   ├── governance.md
-│   └── references.md
+│   ├── references.md
+│   ├── openai_handoff.md
+│   └── legal/
+│       ├── IPCONFIG_PROOF.md
+│       ├── IP_PROVENANCE_REGISTER.md
+│       └── ...protocol records
 ├── cases/              # Raw interaction traces used for kernel compilation
 │   └── 2026-03-04_unknown-contact-sid-removal/
 │       └── conversation.md
@@ -54,7 +59,8 @@ flowchart TD
 │   └── examples/
 │       ├── trace_capture_stub.py
 │       ├── federated_pilot.py
-│       └── nesy_benchmark.py
+│       ├── nesy_benchmark.py
+│       └── openai_handoff_compiler.py
 ├── notes/              # Internal critique (gitignored)
 └── .gitignore
 ```
@@ -72,6 +78,8 @@ flowchart TD
 7. **cases/** + **kernels/** – Real case logs paired with compiled kernel artifacts.
 8. **engine-concept/kernel-routing.md** – Intent→kernel routing and stop-condition model.
 9. **sdk/examples/** – Lightweight Python references that illustrate trace capture, symbolic distillation, and benchmarking flows.
+10. **docs/openai_handoff.md** – Outreach handoff package boundary (external evidence vs internal telemetry validation).
+11. **docs/legal/** – IPClaim/IPConfig provenance and disclosure-date continuity records.
 
 > **Diagram note:** GitHub renders the Mermaid diagrams inline, but if you need static images run `npx @mermaid-js/mermaid-cli -i docs/architecture.md -o diagrams/architecture.png` (or a similar `mmdc` command) and attach the PNGs to releases.
 
@@ -103,13 +111,29 @@ This repository now includes a concrete seed example of ECOmpile compilation:
 Contribution protocol:
 - `CONTRIBUTING_KERNELS.md`
 
+## Introspection Boundary
+
+1. This repository compiles behavioral evidence and kernel candidates from case logs.
+2. True model-internal introspection requires internal telemetry available only in host runtime infrastructure.
+3. The OpenAI handoff package captures this boundary in `docs/openai_handoff.md`.
+
 ---
 
 ## License
 
-This repository is distributed for archival and review purposes only. 
-All offers of collaboration and subsidy are more than welcome. 
-e-mail: stojnic.slavko@gmail.com 
+Primary license artifact:
+- `LICENSE-APC.md`
+
+IPClaim/IPConfig provenance:
+- `docs/legal/IPCONFIG_PROOF.md`
+- `docs/legal/IP_PROVENANCE_REGISTER.md`
+
+Disclosure-date continuity:
+- original disclosure date still stands: 2025-11-08 (`README.md` first add in git history),
+- current IPClaim linkage date: 2026-03-04.
+
+Collaboration contact:
+- stojnic.slavko@gmail.com
 
 ```
 © 2025 Slavko Stojnić — All Rights Reserved.

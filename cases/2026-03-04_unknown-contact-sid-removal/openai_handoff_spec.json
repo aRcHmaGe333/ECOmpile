@@ -1,0 +1,38 @@
+{
+  "email_subject_line": "ECOmpile: implementation-ready architecture and commercial terms",
+  "kernel_id": "SID_REMOVE_SYSTEM_WIDE_KNOWN",
+  "platform": "windows",
+  "context": "powershell|cmd",
+  "intent_required": [
+    "sid",
+    "remove",
+    "system-wide"
+  ],
+  "failure_patterns": [
+    "Yes\\.\\s+If those are\\s+\\*\\*orphan SIDs\\*\\*",
+    "scan[s]? permissions for raw\\s+\\*\\*SID entries\\*\\*"
+  ],
+  "correction_patterns": [
+    "No\\s+[-\\u2014]\\s+\\*\\*don.t run that snippet\\*\\*",
+    "safe, Win11-Admin-PowerShell way"
+  ],
+  "emit_template_lines": [
+    "cmd /c 'icacls <ROOT> /remove *<SID1> /t /c /q'",
+    "cmd /c 'icacls <ROOT> /remove *<SID2> /t /c /q'"
+  ],
+  "forbid_patterns": [
+    "custom filesystem scanners",
+    "orphan-detection scripts",
+    "speculative remediation paths",
+    "claims that no built-in method exists"
+  ],
+  "internal_trace_events_required": [
+    "intent_extraction",
+    "kernel_shortlist",
+    "kernel_match_score",
+    "stop_condition_decision",
+    "primitive_emit",
+    "forbid_branch_prune"
+  ],
+  "compensation_guardrail": "Compensation and attribution terms are agreed in writing before internal execution, integration, derivative use, or deployment."
+}

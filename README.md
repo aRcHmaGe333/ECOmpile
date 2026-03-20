@@ -1,4 +1,5 @@
 # ECOmpile
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20this%20work-ff5e5b?logo=ko-fi&logoColor=white)](https://ko-fi.com/earthcraft)
 
 ECOmpile is a project in the R&D phase that aims to turn **self-assessing neural systems** (with a fair bit of HITL) into **hybrid neural‑code stacks**. The repository contains structured documentation and outlines SDK prototypes so the material can be shared as a cohesive public repository.
 

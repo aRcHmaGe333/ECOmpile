@@ -1,0 +1,24 @@
+{
+  "redactions": [
+    {
+      "id": "email",
+      "regex": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+      "replace_with": "[REDACTED_EMAIL]"
+    },
+    {
+      "id": "phone",
+      "regex": "(\\+\\d{1,3}[\\s-]?)?(\\(?\\d{2,4}\\)?[\\s-]?)?\\d{3,4}[\\s-]?\\d{3,4}",
+      "replace_with": "[REDACTED_PHONE]"
+    },
+    {
+      "id": "windows_path",
+      "regex": "[A-Za-z]:\\\\[^\\s\\\"']+",
+      "replace_with": "[REDACTED_PATH]"
+    },
+    {
+      "id": "token_like",
+      "regex": "(token|secret|api[_-]?key|bearer)\\s*[:=]\\s*[^\\s]+",
+      "replace_with": "[REDACTED_SECRET]"
+    }
+  ]
+}

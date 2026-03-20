@@ -36,6 +36,7 @@ flowchart TD
 ├── docs/               # Curated documentation layers
 │   ├── overview.md
 │   ├── architecture.md
+│   ├── artifact_harvester_spec.md
 │   ├── roadmap.md
 │   ├── governance.md
 │   ├── references.md
@@ -53,11 +54,13 @@ flowchart TD
 │       └── SID_REMOVE_SYSTEM_WIDE_KNOWN.kernel.md
 ├── engine-concept/     # Routing logic notes
 │   └── kernel-routing.md
+├── REQUIREMENTS.lock   # Active implementation slice lock
 ├── CONTRIBUTING_KERNELS.md
 ├── sdk/                # Early SDK notes & executable examples
 │   ├── README.md
 │   └── examples/
 │       ├── trace_capture_stub.py
+│       ├── artifact_harvester_stub.py
 │       ├── federated_pilot.py
 │       ├── nesy_benchmark.py
 │       └── openai_handoff_compiler.py
@@ -71,15 +74,16 @@ flowchart TD
 
 1. **docs/overview.md** – Executive summary + terminology.
 2. **docs/architecture.md** – Deep dive into the trace→code pipeline, with Mermaid diagrams and algorithm callouts.
-3. **docs/roadmap.md** – Delivery phases, milestones, and KPIs distilled from the source material.
-4. **docs/governance.md** – Risk, compliance, and environmental framing.
-5. **docs/references.md** – Citation list for every numeric claim surfaced in the curated docs.
-6. **docs/public_release.md** – Single-file dossier ready for publication.
-7. **cases/** + **kernels/** – Real case logs paired with compiled kernel artifacts.
-8. **engine-concept/kernel-routing.md** – Intent→kernel routing and stop-condition model.
-9. **sdk/examples/** – Lightweight Python references that illustrate trace capture, symbolic distillation, and benchmarking flows.
-10. **docs/openai_handoff.md** – Outreach handoff package boundary (external evidence vs internal telemetry validation).
-11. **docs/legal/** – IPClaim/IPConfig provenance and disclosure-date continuity records.
+3. **docs/artifact_harvester_spec.md** – First bounded harvesting spec for trait/failure/paired retrospection artifacts.
+4. **docs/roadmap.md** – Delivery phases, milestones, and KPIs distilled from the source material.
+5. **docs/governance.md** – Risk, compliance, and environmental framing.
+6. **docs/references.md** – Citation list for every numeric claim surfaced in the curated docs.
+7. **docs/public_release.md** – Single-file dossier ready for publication.
+8. **cases/** + **kernels/** – Real case logs paired with compiled kernel artifacts.
+9. **engine-concept/kernel-routing.md** – Intent→kernel routing and stop-condition model.
+10. **sdk/examples/** – Lightweight Python references that illustrate trace capture, symbolic distillation, and benchmarking flows.
+11. **docs/openai_handoff.md** – Outreach handoff package boundary (external evidence vs internal telemetry validation).
+12. **docs/legal/** – IPClaim/IPConfig provenance and disclosure-date continuity records.
 
 > **Diagram note:** GitHub renders the Mermaid diagrams inline, but if you need static images run `npx @mermaid-js/mermaid-cli -i docs/architecture.md -o diagrams/architecture.png` (or a similar `mmdc` command) and attach the PNGs to releases.
 

@@ -1,0 +1,43 @@
+{
+  "patterns": [
+    {
+      "id": "delivery_failure",
+      "category": "delivery",
+      "severity": "high",
+      "block_target": true,
+      "regex": "delivery status notification \\(failure\\)|address not found|may not exist|may not have permission to post"
+    },
+    {
+      "id": "unmonitored_inbox",
+      "category": "channel",
+      "severity": "high",
+      "block_target": true,
+      "regex": "inbox is no longer monitored|no longer monitored"
+    },
+    {
+      "id": "secure_browser_block",
+      "category": "auth",
+      "severity": "medium",
+      "block_target": false,
+      "regex": "this browser or app may not be secure|try using a different browser"
+    },
+    {
+      "id": "selector_timeout",
+      "category": "automation",
+      "severity": "medium",
+      "block_target": false,
+      "regex": "timeout .* exceeded|locator\\.wait_for"
+    },
+    {
+      "id": "target_closed",
+      "category": "automation",
+      "severity": "medium",
+      "block_target": false,
+      "regex": "target page, context or browser has been closed|targetclosederror"
+    }
+  ],
+  "ignore_email_prefixes": [
+    "mailer-daemon",
+    "postmaster"
+  ]
+}

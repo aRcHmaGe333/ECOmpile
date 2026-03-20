@@ -6,37 +6,50 @@ This brief reframes the pipeline described throughout `1.md` (`Technical Whitepa
 
 ```mermaid
 graph LR
-    A[Neural Model] --> B[Trace Capture]
-    B --> C[Stability Detection]
-    C --> D[Symbolic Reconstruction]
-    D --> E[Hybrid Compiler]
-    E --> F[Validator & Runtime Bridge]
-    F --> G[Optimized Hybrid Model]
+    A[Chat and Local Artifact Sources] --> B[Artifact Harvester]
+    B --> C[Trait or Failure Classifier]
+    C --> D[Trace Capture]
+    D --> E[Stability Detection]
+    E --> F[Symbolic Reconstruction]
+    F --> G[Hybrid Compiler]
+    G --> H[Validator and Runtime Bridge]
+    H --> I[Optimized Hybrid Model]
 ```
 
 ## Module Breakdown
 
-### 1. Trace Capture Layer
+### 1. Artifact Harvester
+- Scours known chat and local artifact locations for reusable rules, decisions, heuristics, and correction patterns.
+- Defaults to extracting positive traits; failure artifacts are expanded only when prevention value is explicit.
+- Records provenance fields: source path, timestamp, offsets, confidence, and transformation history.
+- Uses user-space collection by default; lower-level capture is escalation-only.
+
+### 2. Trait/Failure Classifier
+- Classifies artifacts as `trait`, `failure`, or linked `paired` states.
+- Treats many failures as missing, inverted, overextended, or misapplied traits.
+- Suppresses verbose failure inventories when a positive trait rule preserves the same practical value.
+
+### 3. Trace Capture Layer
 - Hooks into transformer layers (PyTorch forward hooks / TensorFlow Trace API).
 - Collects activations, gradients, attention maps, token probabilities.
 - Produces **activation fingerprints** keyed by prompt, timestamp, and layer.
 
-### 2. Stability Detection Engine
+### 4. Stability Detection Engine
 - Clusters repeated activation paths via DBSCAN / k-means.
 - Computes stability score `S = 1 - σ(A) / (μ(A) + ε)` and flags segments with `S > 0.95`.
 - Generates manifests (`sg_145.json`) enumerating layers, score, and sample contexts.
 
-### 3. Symbolic Reconstruction Layer
+### 5. Symbolic Reconstruction Layer
 - Applies symbolic regression (PySR, Eureqa, SymPy) or code LLMs to approximate subgraphs.
 - Optimization objective: `f̂(x) = argmin_g E[||f(x) - g(x)||²]` for candidate functions `g`.
 - Outputs pseudocode + tests (see `sdk/examples/trace_capture_stub.py`).
 
-### 4. Hybrid Compiler
+### 6. Hybrid Compiler
 - Converts reconstructed routines into Python/C++/Rust modules via LLVM or Cython.
 - Maintains ABI contracts so the neural runtime can hot-swap the compiled block.
 - Metadata: version, checksum, dependency hints (e.g., `torch>=2.2`).
 
-### 5. Validator & Runtime Bridge
+### 7. Validator & Runtime Bridge
 - Compares neural vs. code outputs with `Δ = ||f(x) - f̂(x)|| / ||f(x)||`.
 - Uses RLHF/counterfactual probes for OOD confidence.
 - Routes inference through code path when confidence is high; otherwise falls back to neural block.
@@ -46,6 +59,7 @@ graph LR
 | Artifact | Purpose |
 | --- | --- |
 | Activation logs (`.nfrtrace`) | Raw tensors for offline reconstruction. |
+| Artifact ledger (`artifacts.jsonl`) | Trait/failure/paired retrospection records with provenance. |
 | Stability manifests (`.nfrsg`) | Candidate subgraphs with scores & layer info. |
 | Module registry (`modules.yml`) | Tracks compiled modules, versions, SHA-256 hashes. |
 | Audit log (`audit.log`) | Immutable record of swaps for compliance (ISO/IEC 42001). |

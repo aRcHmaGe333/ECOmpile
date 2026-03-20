@@ -1,0 +1,49 @@
+# REQUIREMENTS.lock
+
+Project: ECOmpile
+Slice: artifact harvester v0
+Status: active
+Date: 2026-03-11
+
+## Locked objective
+
+Build the first narrow ECOmpile artifact harvester that scans known local chat and artifact locations, extracts reusable retrospection artifacts, and records them with provenance under UCAS-compatible rules.
+
+## In scope
+
+- known local chat and artifact roots only
+- user-space collection only
+- artifact classes: `trait`, `failure`, `paired`
+- provenance fields: source path, timestamp, offsets or excerpt anchors, confidence, transformation history
+- default positive-trait extraction
+- failure extraction only when prevention, correction, or loss avoidance value is explicit
+
+## Out of scope
+
+- kernel-mode capture by default
+- universal filesystem crawling
+- full conversational understanding of every chat
+- automatic promotion of every repeated observation into a rule
+- deep model-internal telemetry beyond currently accessible user-space evidence
+
+## Success criteria
+
+- one documented harvester spec exists
+- one ledger schema exists for harvested artifacts
+- one bounded source set is named for the first pass
+- one explicit threshold exists for when user-space harvesting is insufficient
+- trait-first routing is encoded without losing the ability to capture prevention-critical failures
+
+## Failure conditions
+
+- the harvester becomes an indiscriminate chat vacuum
+- the default output becomes verbose failure inventories
+- provenance is missing or too weak to audit
+- kernel-mode assumptions appear without justification
+- artifact classes are too vague to route into later compilation work
+
+## Relation to UCAS
+
+- UCAS supplies the operating doctrine, thresholds, provenance expectations, and promotion discipline
+- ECOmpile supplies the harvesting, routing, ledgering, and later compilation path
+- trait and failure artifacts must remain linked when one explains the absence, inversion, or misuse of the other

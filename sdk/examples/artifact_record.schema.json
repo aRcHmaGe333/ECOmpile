@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ECOmpile Artifact Record",
+  "type": "object",
+  "required": [
+    "artifact_id",
+    "artifact_class",
+    "title",
+    "summary",
+    "source_path",
+    "source_timestamp",
+    "source_anchor",
+    "confidence",
+    "repeat_count",
+    "context_span",
+    "causal_confidence",
+    "promotion_candidate",
+    "enforcement_candidate",
+    "transformation_history"
+  ],
+  "properties": {
+    "artifact_id": {"type": "string"},
+    "artifact_class": {
+      "type": "string",
+      "enum": ["trait", "failure", "paired"]
+    },
+    "title": {"type": "string"},
+    "summary": {"type": "string"},
+    "source_path": {"type": "string"},
+    "source_timestamp": {"type": "string"},
+    "source_anchor": {"type": "string"},
+    "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+    "repeat_count": {"type": "integer", "minimum": 1},
+    "context_span": {"type": "string"},
+    "causal_confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+    "promotion_candidate": {"type": "boolean"},
+    "enforcement_candidate": {"type": "boolean"},
+    "paired_artifact_id": {"type": ["string", "null"]},
+    "transformation_history": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

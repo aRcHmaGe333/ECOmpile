@@ -8,6 +8,10 @@
 
 This work exists because its Author created it. The Author published it first, publicly, with cryptographic proof of the date and content. No prior record of this work exists. No external authority was consulted, because none is needed: the proof is in the public record, verifiable by anyone with standard tools, arguable by no one.
 
+> **Universal, Evidence-Based IP Claim**
+> >
+> > I claim, as my intellectual property, whatever can be claimed and has not been previously claimed as IP by another. I do not need to specify in advance which parts of my work qualify as IP, nor do I need to hire experts, clerks, or lawyers to determine this for me. By publishing this work, I assert that all content disclosed herein—if and to the extent it qualifies as intellectual property and was not previously publicly claimed—is hereby claimed by me, with the time and contents of disclosure provided as immutable, cryptographic evidence.
+
 This license treats publication as the claim. The timestamp is the patent. The hash is the seal. Maintenance is the internet itself.
 
 ---
@@ -66,13 +70,19 @@ Publication is proof of authorship, not relinquishment of ownership. Visibility 
 ---
 
 ## IV. PRIOR ART DEFENSE
-
+ 
 Simultaneously, this publication establishes **irrevocable prior art**.
-
+ 
 Should any third party file a patent, utility model, design registration, or any intellectual property claim over any concept, method, or system described in this Work — this public record exists to **destroy that claim on the grounds of prior disclosure**.
-
+ 
 The Author did it first. The record is public. The hash is verifiable. No examiner is required.
-
+ 
+---
+ 
+## V. GOOD-FAITH CORRECTION AND RESTITUTION
+ 
+If, due to a reasonable mistake by myself or the public, any portion of this work is later found to have been rightfully owned or previously claimed as IP by another, and I have benefited from it (including via the ValueFlow system or other documented means), I commit to transferring an objectively estimated share of those benefits to the rightful owner. This commitment reflects the principle that both I and the public acted in good faith based on the best available knowledge at the time of disclosure.
+ 
 ---
 
 ## V. DURATION AND MAINTENANCE

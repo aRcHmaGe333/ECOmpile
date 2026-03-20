@@ -4,7 +4,7 @@ Phases consolidated from the source material (see `1.md:482-520`, `1.md:607-632`
 
 | Phase | Timeline | Highlights | Exit Criteria |
 | --- | --- | --- | --- |
-| Prototype | 0–6 months | Instrument open models (LLaMA/Mistral), capture activation traces, early clustering dashboard. | Stability score reports (≥10 high-confidence subgraphs), reproducibility tests, initial energy baselines. |
+| Prototype | 0–6 months | Instrument open models (LLaMA/Mistral), add chat-location artifact harvester, capture activation traces, early clustering dashboard. | Stability score reports (≥10 high-confidence subgraphs), first harvested trait ledger, reproducibility tests, initial energy baselines. |
 | Reconstruction | 6–12 months | Build symbolic regression service, integrate code-gen LLMs, publish SDK alpha (`trace_capture_stub.py`). | ≥5 compiled modules matching neural outputs (Δ < 1e-3), public demo notebook. |
 | Validation | 12–18 months | Benchmark vs. GLUE/SuperGLUE, add RLHF-based fallback policy, document compliance hooks. | Hallucination <5%, 60–80% cost reduction on target workloads, auditable logs. |
 | Deployment | 18–24 months | Release cloud / on-prem orchestrator, launch federated pilots (edge devices). | Paying design partners, enterprise-ready governance pack, reference architecture. |
@@ -13,6 +13,8 @@ Phases consolidated from the source material (see `1.md:482-520`, `1.md:607-632`
 ## Milestone Checklist
 
 - [ ] Activation tracer open-sourced.
+- [ ] Artifact harvester emits `trait`, `failure`, and `paired` records with provenance.
+- [ ] Positive trait extraction is the default path; failure enumeration is limited to prevention-critical cases.
 - [ ] SDK sample suite published (`sdk/examples`).
 - [ ] Carbon accounting sheet validated against AI Index methodology.
 - [ ] Governance review completed (EU AI Act classification, ISO controls).

@@ -4,6 +4,8 @@ ECOmpile envisions self-refining AI systems that observe their own inference tra
 
 ECOmpile embodies the idea of AI models reinforcing their own soft logic into stable, reliable, and sustainable structure—creativity wrapped in dependable scaffolding.
 
+It should also harvest useful retrospection artifacts from its own working environment, especially chat-derived rules, decisions, heuristics, and correction patterns that can be compiled into more stable operating behavior.
+
 ## Core Narrative
 
 - **Problem** – Pure neural inference is expensive, opaque, and prone to hallucinations (20–75% in reasoning tasks per Vectara 2025 leaderboard).
@@ -19,6 +21,14 @@ ECOmpile embodies the idea of AI models reinforcing their own soft logic into st
 | Transparency | Extracted modules are human-readable, testable, and certifiable. |
 | Sustainability | Roughly 100× energy savings vs. GPU-only inference (~0.004 kWh/task vs. 0.4 kWh GPU hour). |
 | Evolution | Models become self-compilers, continuously crystallizing their best reasoning. |
+| Self-harvesting | The system captures reusable traits and only names failures explicitly when that improves prevention or correction. |
+
+## Retrospection Harvesting Rule
+
+- Traits are the default harvest target.
+- Failures are harvested when needed, not as the primary narrative.
+- Trait and failure artifacts remain linked when one explains the absence, inversion, or misuse of the other.
+- Chat-location and local artifact harvesting should start in user space and escalate lower only when justified by missing visibility.
 
 ## Audience Layers
 

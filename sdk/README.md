@@ -10,6 +10,7 @@ The SDK concept sketches how to operationalize the ECOmpile pipeline. These file
 | `federated_pilot.py` | Simulates a federated NeSy loop (~10 clients) with symbolic distillation at the edge. | Prototype |
 | `nesy_benchmark.py` | Shows how to blend neural logits with symbolic rules on a parity task. | Prototype |
 | `openai_handoff_compiler.py` | Packages external behavioral evidence + internal telemetry contract for OpenAI-side validation. | Prototype |
+| `artifact_harvester_stub.py` | Harvests bounded local chat/artifact roots into provenance-rich `trait` / `failure` / `paired` JSONL records. | Prototype |
 
 ## Running Examples
 
@@ -18,6 +19,7 @@ python sdk/examples/trace_capture_stub.py
 python sdk/examples/federated_pilot.py
 python sdk/examples/nesy_benchmark.py
 python sdk/examples/openai_handoff_compiler.py --case-file cases/2026-03-04_unknown-contact-sid-removal/conversation.md --spec-file cases/2026-03-04_unknown-contact-sid-removal/openai_handoff_spec.json --strict
+python sdk/examples/artifact_harvester_stub.py --roots-file sdk/examples/artifact_source_roots.sample.json --output artifacts/artifact_harvest/artifacts.jsonl
 ```
 
 > Tested on Python 3.10 with PyTorch 2.2, SymPy 1.12, NumPy 1.26, and scikit-learn 1.5.
@@ -26,6 +28,7 @@ python sdk/examples/openai_handoff_compiler.py --case-file cases/2026-03-04_unkn
 
 - Replace the random data generators with actual activation captures from your model.
 - Export real stability manifests (`.nfrsg`) and feed them into downstream compilation steps.
+- Replace the sample roots file with environment-specific bounded roots and refine the classifier thresholds against UCAS review.
 - Contribute additional examples (e.g., governance checks, audit log writers) in the same folder.
 
 Remember to cite the original source lines from `1.md`/`2.md` when adding new logic.

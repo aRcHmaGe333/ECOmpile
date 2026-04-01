@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "v2_root": "ECOmpile-v2",
+  "experiment_root": "QUARANTINED_EXPERIMENT_ROOT",
+  "exact_matches": [],
+  "near_matches": [],
+  "disallowed_exact_count": 0,
+  "disallowed_near_count": 0,
+  "near_threshold": 0.92
+}

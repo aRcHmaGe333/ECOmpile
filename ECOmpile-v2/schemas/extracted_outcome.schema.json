@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "extracted_outcome",
+  "type": "object",
+  "required": [
+    "outcome_id",
+    "session_id",
+    "family",
+    "intent_text",
+    "context",
+    "candidate_type",
+    "candidate_payload",
+    "source_anchor",
+    "acceptance_signal",
+    "determinism_shape"
+  ],
+  "properties": {
+    "outcome_id": { "type": "string", "minLength": 1 },
+    "session_id": { "type": "string", "minLength": 1 },
+    "family": { "type": "string", "minLength": 1 },
+    "intent_text": { "type": "string", "minLength": 1 },
+    "context": {
+      "type": "object",
+      "required": ["platform", "surface"],
+      "properties": {
+        "platform": { "type": "string" },
+        "surface": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "candidate_type": { "type": "string", "enum": ["command", "template", "procedure"] },
+    "candidate_payload": { "type": "string", "minLength": 1 },
+    "source_anchor": { "type": "string", "minLength": 1 },
+    "acceptance_signal": { "type": "number", "minimum": 0, "maximum": 1 },
+    "determinism_shape": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}

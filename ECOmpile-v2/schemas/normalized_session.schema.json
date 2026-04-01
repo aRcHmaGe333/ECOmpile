@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "normalized_session",
+  "type": "object",
+  "required": [
+    "session_id",
+    "family",
+    "provider",
+    "updated_at",
+    "source_path",
+    "messages"
+  ],
+  "properties": {
+    "session_id": { "type": "string", "minLength": 1 },
+    "family": { "type": "string", "enum": ["codex", "vscode", "claude"] },
+    "provider": { "type": "string", "minLength": 1 },
+    "updated_at": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "scope": { "type": "string" },
+    "source_path": { "type": "string", "minLength": 1 },
+    "messages": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["role", "text", "anchor"],
+        "properties": {
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "text": { "type": "string", "minLength": 1 },
+          "anchor": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kernel_candidate",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "intent_signature_tokens",
+    "context",
+    "emit_template",
+    "stop_condition",
+    "forbid",
+    "provenance",
+    "metrics",
+    "score"
+  ],
+  "properties": {
+    "candidate_id": { "type": "string", "minLength": 1 },
+    "intent_signature_tokens": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "context": {
+      "type": "object",
+      "required": ["platform", "surface"],
+      "properties": {
+        "platform": { "type": "string" },
+        "surface": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "emit_template": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "stop_condition": { "type": "string", "minLength": 1 },
+    "forbid": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["session_id", "source_anchor"],
+        "properties": {
+          "session_id": { "type": "string", "minLength": 1 },
+          "source_anchor": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["recurrence", "acceptance_signal", "cross_session_reuse", "determinism_shape", "occurrences"],
+      "properties": {
+        "recurrence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "acceptance_signal": { "type": "number", "minimum": 0, "maximum": 1 },
+        "cross_session_reuse": { "type": "number", "minimum": 0, "maximum": 1 },
+        "determinism_shape": { "type": "number", "minimum": 0, "maximum": 1 },
+        "occurrences": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}

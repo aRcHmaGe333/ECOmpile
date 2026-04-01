@@ -1,3 +1,14 @@
 notes/
 1.md
 2.md
+
+# ECOmpile-v2 internal-only artifacts
+ECOmpile-v2/.private/
+
+# Python cache/test artifacts
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+.pytest_cache/

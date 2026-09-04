@@ -1,146 +1,104 @@
 # ECOmpile
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20this%20work-ff5e5b?logo=ko-fi&logoColor=white)](https://ko-fi.com/earthcraft)
 
-ECOmpile is a project in the R&D phase that aims to turn **self-assessing neural systems** (with a fair bit of HITL) into **hybrid neural‑code stacks**. The repository contains structured documentation and outlines SDK prototypes so the material can be shared as a cohesive public repository.
+A model figures something out.
 
-It's an AI refinery: models improvise, gather best outcomes and then forge those beneficial elements into lean code that can be inspected, accurately, swiftly and (cost-)effectively reproduced. The result is software that stays creative when it needs to be, yet behaves like dependable infrastructure where it counts, not to mention the gains in speed, reliability and the ability to educate, to define, display and reproduce certain actions in a clear, transparent manner.
+Then, next time, we make the model figure out the same thing again. And again. And again.
 
-Public stakeholders — from curious readers to CTOs — can explore this repository to understand why ECOmpile matters for cost, safety, transparency, sustainability, robust and reliable outcomes. 
+ECOmpile is my attempt to stop doing that where the useful part of the behavior has already become stable enough to turn into normal code.
 
-> **All Rights Reserved — © 2025 Slavko Stojnić**
+The model can stay neural where it still needs to improvise. The repeatable part can become something deterministic, inspectable, testable and cheap to run.
 
----
+That is the whole idea.
 
-## Why this repo exists
+## The short version
 
-- To inform stakeholders and provide a citation-friendly summary.
-- To enlist backing for a high-potential, indispensible concept. 
-- To document governance, a roadmap and SDK guidance so that the value of ECOmpile can be actualized.
+Think of it as an AI refinery.
 
-## 5-Second Model
+The model does the expensive messy work first. Useful repeated behavior gets identified. Stable parts get turned into code. Next time, the system checks whether there is already a known deterministic path before asking a giant neural system to rediscover the answer from scratch.
 
 ```mermaid
 flowchart TD
     A[Prompt] --> B[Intent Match]
     B --> C{Kernel Hit}
-    C -->|Yes| D[Emit Primitive]
-    C -->|No| E[Normal Reasoning Path]
+    C -->|Yes| D[Run known deterministic path]
+    C -->|No| E[Normal neural reasoning path]
 ```
 
----
+That should buy several things at once when it works:
 
-## Repository layout
+- less repeated inference
+- lower compute cost
+- more predictable behavior on known paths
+- code you can inspect and test
+- a clear place to teach/correct behavior instead of hoping the model rediscovers it correctly every time
 
-```
-.
-├── README.md           # You are here
-├── docs/               # Curated documentation layers
-│   ├── overview.md
-│   ├── architecture.md
-│   ├── artifact_harvester_spec.md
-│   ├── roadmap.md
-│   ├── governance.md
-│   ├── references.md
-│   ├── openai_handoff.md
-│   └── legal/
-│       ├── IPCONFIG_PROOF.md
-│       ├── IP_PROVENANCE_REGISTER.md
-│       └── ...protocol records
-├── cases/              # Raw interaction traces used for kernel compilation
-│   └── 2026-03-04_unknown-contact-sid-removal/
-│       └── conversation.md
-├── kernels/            # Compiled deterministic kernels + fast index
-│   ├── index.tsv
-│   └── windows/acl/
-│       └── SID_REMOVE_SYSTEM_WIDE_KNOWN.kernel.md
-├── engine-concept/     # Routing logic notes
-│   └── kernel-routing.md
-├── REQUIREMENTS.lock   # Active implementation slice lock
-├── CONTRIBUTING_KERNELS.md
-├── sdk/                # Early SDK notes & executable examples
-│   ├── README.md
-│   └── examples/
-│       ├── trace_capture_stub.py
-│       ├── artifact_harvester_stub.py
-│       ├── federated_pilot.py
-│       ├── nesy_benchmark.py
-│       └── openai_handoff_compiler.py
-├── notes/              # Internal critique (gitignored)
-└── .gitignore
-```
+The sustainability angle comes from the same place: if repeated neural work can be replaced safely by much cheaper deterministic execution, there should be real energy savings. I want that measured properly, not turned into green confetti.
 
----
+## What exists right now
 
-## Reading order
+This is R&D. It is not a finished self-compiling AI platform.
 
-1. **docs/overview.md** – Executive summary + terminology.
-2. **docs/architecture.md** – Deep dive into the trace→code pipeline, with Mermaid diagrams and algorithm callouts.
-3. **docs/artifact_harvester_spec.md** – First bounded harvesting spec for trait/failure/paired retrospection artifacts.
-4. **docs/roadmap.md** – Delivery phases, milestones, and KPIs distilled from the source material.
-5. **docs/governance.md** – Risk, compliance, and environmental framing.
-6. **docs/references.md** – Citation list for every numeric claim surfaced in the curated docs.
-7. **docs/public_release.md** – Single-file dossier ready for publication.
-8. **cases/** + **kernels/** – Real case logs paired with compiled kernel artifacts.
-9. **engine-concept/kernel-routing.md** – Intent→kernel routing and stop-condition model.
-10. **sdk/examples/** – Lightweight Python references that illustrate trace capture, symbolic distillation, and benchmarking flows.
-11. **docs/openai_handoff.md** – Outreach handoff package boundary (external evidence vs internal telemetry validation).
-12. **docs/legal/** – IPClaim/IPConfig provenance and disclosure-date continuity records.
+The repo already contains:
 
-> **Diagram note:** GitHub renders the Mermaid diagrams inline, but if you need static images run `npx @mermaid-js/mermaid-cli -i docs/architecture.md -o diagrams/architecture.png` (or a similar `mmdc` command) and attach the PNGs to releases.
+- architecture and roadmap material
+- a concrete case -> kernel seed
+- a kernel index
+- routing logic
+- early SDK examples
+- benchmark scaffolding
+- provenance and handoff material
+- governance / risk material
 
----
+Current stage: **R&D prototype / bounded proof seeds**.
 
-## Document provenance
+There is enough here to show the mechanism and build experiments around it. There is not enough here to claim the big system has already been proven.
 
-- All derivative documents quote, summarize, or reorganize concepts but **never modify** the originals.
-When referencing a section, the curated docs call out the line anchors (e.g., `1.md:285` for the public narrative).
+## The useful next proof
 
----
+The next thing I care about is painfully simple:
 
-## Case-to-Kernel Seed (New)
+Take repeated real tasks.
 
-This repository now includes a concrete seed example of ECOmpile compilation:
+Run them the expensive way.
 
-1. **Raw case**:
-- `cases/2026-03-04_unknown-contact-sid-removal/conversation.md`
+Compile the stable part into a deterministic path.
 
-2. **Compiled kernel**:
-- `kernels/windows/acl/SID_REMOVE_SYSTEM_WIDE_KNOWN.kernel.md`
+Run them again.
 
-3. **Fast lookup index**:
-- `kernels/index.tsv`
+Measure speed, compute, energy, accuracy, failure rate and when the system has to fall back to the model.
 
-4. **Routing model**:
-- `engine-concept/kernel-routing.md`
+If the result is unimpressive, good, we learned something. If it is dramatic, even better.
 
-Contribution protocol:
-- `CONTRIBUTING_KERNELS.md`
+## Where to look
 
-## Introspection Boundary
+- [Overview](docs/overview.md)
+- [Architecture](docs/architecture.md)
+- [Roadmap](docs/roadmap.md)
+- [Governance](docs/governance.md)
+- [Artifact harvester spec](docs/artifact_harvester_spec.md)
+- [Public release dossier](docs/public_release.md)
+- [Case material](cases/)
+- [Compiled kernels](kernels/)
+- [Routing model](engine-concept/kernel-routing.md)
+- [SDK examples](sdk/examples/)
 
-1. This repository compiles behavioral evidence and kernel candidates from case logs.
-2. True model-internal introspection requires internal telemetry available only in host runtime infrastructure.
-3. The OpenAI handoff package captures this boundary in `docs/openai_handoff.md`.
+The repo also keeps the boundary explicit: true model-internal introspection needs host-runtime telemetry. What exists here works from observable behavior, traces and artifacts available outside the model internals.
 
----
+## Why I am showing this publicly
 
-## License
+Because I want people who actually run models, build AI infrastructure, benchmark systems, care about reliability, or care about energy use to look at the mechanism and tell me where it survives reality and where it does not.
 
-Primary license artifact:
-- `LICENSE-APC.md`
+If you can help test it, fund it, expose it to real workloads, or provide the runtime access needed for deeper experiments, I am interested.
 
-IPClaim/IPConfig provenance:
-- `docs/legal/IPCONFIG_PROOF.md`
-- `docs/legal/IP_PROVENANCE_REGISTER.md`
+## License / authorship
 
-Disclosure-date continuity:
-- original disclosure date still stands: 2025-11-08 (`README.md` first add in git history),
-- current IPClaim linkage date: 2026-03-04.
+Primary license: [LICENSE-APC.md](LICENSE-APC.md)
 
-Collaboration contact:
-- stojnic.slavko@gmail.com
+Authorship/provenance material:
 
-```
-© 2025 Slavko Stojnić — All Rights Reserved.
-No rights are granted to copy, modify, or distribute without explicit permission.
-```
+- [IPCONFIG_PROOF.md](docs/legal/IPCONFIG_PROOF.md)
+- [IP_PROVENANCE_REGISTER.md](docs/legal/IP_PROVENANCE_REGISTER.md)
+
+Contact: stojnic.slavko@gmail.com
+
+[Support the work](https://ko-fi.com/earthcraft)

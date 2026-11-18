@@ -1,5 +1,13 @@
 # Never-repeat principle — achievement-first ECOmpile
 
+
+> **Relationship to the established Never Repeat principle.** This is ECOmpile's domain-specific application of the author's earlier development rule: persist valid outcomes, reuse first, and recompute only what changed. The principle predates this document and draws on established engineering practices such as memoization, incremental computation, DRY and single-source implementations. Its name here is a reference, not a claim of a new principle.
+>
+> **Storage and identity belong to UDF.** [UDF's Action → Outcome Cache](https://github.com/aRcHmaGe333/udf/blob/main/docs/compute-cache.md) already describes action-keyed deterministic result reuse. [UDF's prepared cache](https://github.com/aRcHmaGe333/udf/blob/main/docs/vision/prepared-cache.md) describes keeping resource locators ready without retaining all payloads in RAM. ECOmpile should extend the *selection and applicability* of reusable results and abilities through those existing facilities, not build a duplicate physical cache.
+>
+> **ASOSOS context:** [Integrated architecture and references](https://github.com/aRcHmaGe333/aRcHmaGe333/blob/main/ASOSOS.md).
+
+
 ## Central idea
 
 An AI system reaches a successful result. The next equivalent request should begin from **that achievement**, not from the original unsolved problem.

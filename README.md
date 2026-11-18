@@ -4,40 +4,40 @@ A model figures something out.
 
 Then, next time, we make the model figure out the same thing again. And again. And again.
 
-ECOmpile is my attempt to stop doing that by preserving what was achieved, and by turning repeatable supporting operations into ordinary code where that's cheaper.
+ECOmpile is my attempt to stop doing that by making **results, proven procedures, and developed abilities** reusable.
 
 **Never repeat an achievement unnecessarily.**
 
-A finished result or working state can become the next task's starting point—or be delivered directly. When storing every result is less useful than repeating a small, reliable operation, that operation can become deterministic, inspectable, testable code. Neural processing remains for what still requires new work.
+When an expensive computation already produced the right result, reuse its preserved state. When accumulating separate result states becomes more expensive than a small, reliable procedure, run deterministic code. When an agent has developed a useful ability through interaction and correction, preserve the resulting working capability rather than starting another instance from zero.
 
-## The two roles
+## Three complementary resources
 
-**1. Achieved states: the macro elements.** ECOmpile preserves a successful output or a recoverable working state, with the relevant inputs, conditions, evidence and means of delivering it again. When a new request matches, the achievement can be reused directly. When only part matches, retain the applicable part and calculate the difference.
+**1. Results — the macro elements.** Retain a finished, verified achievement or recoverable working position. Deliver it directly when conditions match; for a related request, reuse the valid portion and compute only what changed.
 
-**2. Deterministic code: the supporting process.** Stable successful actions become scripts, functions or compiled routines when repeated execution is cheaper than retaining and retrieving separate outputs. The program can also produce a new achievement worth preserving.
+**2. Deterministic code — inexpensive repeated operations.** Extract successful, stable behavior into inspectable programs. Use them when storing every result is wasteful, and preserve expensive outputs when repeated execution would be wasteful. The cheapest reliable option wins.
 
-These routes are complementary, but they are not equally necessary for every task. A result may be worth keeping without extracting an algorithm. A tiny deterministic procedure may be better executed than storing thousands of resulting states. ECOmpile chooses by the total cost of a correctly delivered outcome.
+**3. Cultivated instances — acquired abilities and working-memory states.** Successful interaction histories can be paired with the models and versions that achieved them. Preserve a genuine checkpoint where possible, or experimentally reconstruct and transfer the demonstrated ability through an ABCaps-style representation. A later model can be exposed to the same successful history and evaluated for the capability it develops. This serves many new tasks rather than only replaying a previously finished output.
 
 ```mermaid
 flowchart TD
-    A[New request] --> B[Find previous achievements and proven procedures]
-    B --> C{Cheapest verified compatible route}
-    C -->|Preserved state| D[Deliver or restore]
-    C -->|Partially reusable state| E[Reuse and compute difference]
-    C -->|Deterministic operation| F[Execute proven code]
-    C -->|Novel or uncertain| G[New work]
-    D --> H[Check result and delivery]
+    A[Task and context] --> B[Find successful results, procedures and capable instances]
+    B --> C{Cheapest verified compatible path}
+    C -->|Saved result| D[Deliver or restore]
+    C -->|Proven code| E[Run deterministic operation]
+    C -->|Proven capability| F[Resume or reinstate cultivated instance]
+    C -->|New or uncertain| G[New work]
+    D --> H[Verify actual outcome]
     E --> H
     F --> H
     G --> H
-    H --> I[Preserve successful achievement]
+    H --> I[Preserve newly demonstrated achievement]
 ```
 
-For an exact, verified match, state delivery can avoid virtually all repeated neural inference. Lookup, storage, reconstruction and verification still cost something. Identical bytes can be delivered reliably; applicability under changed conditions must be established separately.
+These resources reinforce one another. Code produces results. Results establish successful procedures. Successful histories develop abilities. Cultivated instances discover new code and results. ECOmpile chooses what to retain and how to reuse it based on total cost, observed reliability and expected future use.
 
-The first experiments should compare normal inference, direct state reuse, partial-state adaptation, and deterministic execution, measuring delivery reliability and total cost. The existing repository primarily implements the deterministic-kernel direction; general result-state preservation and delivery remain proposed.
+Exact saved artifacts can be delivered byte-identically. Reinstating abilities across changed models or environments is a distinct experimental challenge: a successful transcript alone does not restore hidden neural state. The first experiments must measure the reliability of each form of reuse separately.
 
-[Full definition and first experiment: Never-repeat principle](docs/never_repeat_principle.md).
+[Full definition and tests: Never-repeat principle](docs/never_repeat_principle.md).
 
 ## What exists right now
 
@@ -60,15 +60,17 @@ There is enough here to show the mechanism and build experiments around it. Ther
 
 ## The useful next proof
 
-Take an expensive task with a verified successful output. Repeat it by retrieving the achieved state, then change one input and reuse only what remains applicable. Separately turn a recurring cheap sub-operation into deterministic code. Compare all three with fresh neural execution.
+Compare fresh neural execution, direct result-state delivery, inexpensive deterministic code, and reuse of cultivated instance abilities.
 
-Measure delivery correctness, false matches, runtime, total cost, computation avoided, and how often each method wins. The first exact-match tests should establish actual reliability rather than assuming it.
+First, repeat an expensive completed task and verify identical delivery. Then vary the task and find the point where code is cheaper than saving further outputs. Finally pair a successful interaction history with the exact model that achieved it, test the ability on new tasks, and repeat the experience with an updated model.
+
+Measure correctness, retained capability, delivery reliability, invalid matches, resource cost and repeated inference avoided.
 
 ## Where to look
 
 - [Overview](docs/overview.md)
 - [Architecture](docs/architecture.md)
-- [Never-repeat principle: achieved states and deterministic support](docs/never_repeat_principle.md)
+- [Never-repeat principle: results, code and cultivated instances](docs/never_repeat_principle.md)
 - [Roadmap](docs/roadmap.md)
 - [Governance](docs/governance.md)
 - [Artifact harvester spec](docs/artifact_harvester_spec.md)

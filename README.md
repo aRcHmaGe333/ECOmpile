@@ -4,35 +4,40 @@ A model figures something out.
 
 Then, next time, we make the model figure out the same thing again. And again. And again.
 
-ECOmpile is my attempt to stop doing that where the useful part of the behavior has already become stable enough to turn into normal code.
+ECOmpile is my attempt to stop doing that by preserving what was achieved, and by turning repeatable supporting operations into ordinary code where that's cheaper.
 
-The model can stay neural where it still needs to improvise. The repeatable part can become something deterministic, inspectable, testable and cheap to run.
+**Never repeat an achievement unnecessarily.**
 
-That is the whole idea.
+A finished result or working state can become the next task's starting point—or be delivered directly. When storing every result is less useful than repeating a small, reliable operation, that operation can become deterministic, inspectable, testable code. Neural processing remains for what still requires new work.
 
-## The short version
+## The two roles
 
-Think of it as an AI refinery.
+**1. Achieved states: the macro elements.** ECOmpile preserves a successful output or a recoverable working state, with the relevant inputs, conditions, evidence and means of delivering it again. When a new request matches, the achievement can be reused directly. When only part matches, retain the applicable part and calculate the difference.
 
-The model does the expensive messy work first. Useful repeated behavior gets identified. Stable parts get turned into code. Next time, the system checks whether there is already a known deterministic path before asking a giant neural system to rediscover the answer from scratch.
+**2. Deterministic code: the supporting process.** Stable successful actions become scripts, functions or compiled routines when repeated execution is cheaper than retaining and retrieving separate outputs. The program can also produce a new achievement worth preserving.
+
+These routes are complementary, but they are not equally necessary for every task. A result may be worth keeping without extracting an algorithm. A tiny deterministic procedure may be better executed than storing thousands of resulting states. ECOmpile chooses by the total cost of a correctly delivered outcome.
 
 ```mermaid
 flowchart TD
-    A[Prompt] --> B[Intent Match]
-    B --> C{Kernel Hit}
-    C -->|Yes| D[Run known deterministic path]
-    C -->|No| E[Normal neural reasoning path]
+    A[New request] --> B[Find previous achievements and proven procedures]
+    B --> C{Cheapest verified compatible route}
+    C -->|Preserved state| D[Deliver or restore]
+    C -->|Partially reusable state| E[Reuse and compute difference]
+    C -->|Deterministic operation| F[Execute proven code]
+    C -->|Novel or uncertain| G[New work]
+    D --> H[Check result and delivery]
+    E --> H
+    F --> H
+    G --> H
+    H --> I[Preserve successful achievement]
 ```
 
-That should buy several things at once when it works:
+For an exact, verified match, state delivery can avoid virtually all repeated neural inference. Lookup, storage, reconstruction and verification still cost something. Identical bytes can be delivered reliably; applicability under changed conditions must be established separately.
 
-- less repeated inference
-- lower compute cost
-- more predictable behavior on known paths
-- code you can inspect and test
-- a clear place to teach/correct behavior instead of hoping the model rediscovers it correctly every time
+The first experiments should compare normal inference, direct state reuse, partial-state adaptation, and deterministic execution, measuring delivery reliability and total cost. The existing repository primarily implements the deterministic-kernel direction; general result-state preservation and delivery remain proposed.
 
-The sustainability angle comes from the same place: if repeated neural work can be replaced safely by much cheaper deterministic execution, there should be real energy savings. I want that measured properly, not turned into green confetti.
+[Full definition and first experiment: Never-repeat principle](docs/never_repeat_principle.md).
 
 ## What exists right now
 
@@ -55,24 +60,15 @@ There is enough here to show the mechanism and build experiments around it. Ther
 
 ## The useful next proof
 
-The next thing I care about is painfully simple:
+Take an expensive task with a verified successful output. Repeat it by retrieving the achieved state, then change one input and reuse only what remains applicable. Separately turn a recurring cheap sub-operation into deterministic code. Compare all three with fresh neural execution.
 
-Take repeated real tasks.
-
-Run them the expensive way.
-
-Compile the stable part into a deterministic path.
-
-Run them again.
-
-Measure speed, compute, energy, accuracy, failure rate and when the system has to fall back to the model.
-
-If the result is unimpressive, good, we learned something. If it is dramatic, even better.
+Measure delivery correctness, false matches, runtime, total cost, computation avoided, and how often each method wins. The first exact-match tests should establish actual reliability rather than assuming it.
 
 ## Where to look
 
 - [Overview](docs/overview.md)
 - [Architecture](docs/architecture.md)
+- [Never-repeat principle: achieved states and deterministic support](docs/never_repeat_principle.md)
 - [Roadmap](docs/roadmap.md)
 - [Governance](docs/governance.md)
 - [Artifact harvester spec](docs/artifact_harvester_spec.md)

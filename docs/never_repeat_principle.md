@@ -4,13 +4,15 @@
 
 An AI system reaches a successful result. The next equivalent request should begin from **that achievement**, not from the original unsolved problem.
 
-ECOmpile has two complementary forms of reuse, with an important distinction in scale:
+ECOmpile has **three complementary forms of reuse**:
 
-**The macro element is the achieved state.** The complete verified result, or a recoverable working state that can reliably produce that result, becomes a resource. Where the new request matches its relevant conditions, ECOmpile delivers or reinstates it, avoiding the original inference and work.
+**1. Achieved results (macro states).** Preserve the complete successful outcome, or a recoverable state sufficient to produce it. When the current request matches, deliver it or reinstate it. The previously expensive computation becomes inexpensive retrieval.
 
-**The supporting element is deterministic execution.** When there is no useful reason to retain a distinct full result state for every execution, ECOmpile identifies stable behavior that can be implemented as a script, function, or other tested program. The program reproduces the relevant operation more cheaply and consistently than repeated neural inference, within its verified range.
+**2. Deterministic procedures (supporting code).** Preserve a general method rather than many separate outcomes when inexpensive, validated code produces them more economically. The previously expensive repeated neural path becomes inexpensive execution. Sometimes storing the output is cheaper than rerunning the code; sometimes retaining thousands of outputs is costlier than one working procedure. ECOmpile can choose either.
 
-These are not two equally mandatory pipelines. The system chooses the least expensive reliable way to meet the requested outcome, and a compiled operation may itself produce a state worth preserving.
+**3. Cultivated instances (capability states).** Preserve an instance's demonstrated abilities and relevant working-memory state, with the model, runtime and successful learning/work history that produced them. This is the ABCaps direction: reuse an ability achieved through extensive interaction, not merely an isolated answer. Where the platform permits, resume a genuine checkpoint; otherwise use a proven portable capability representation and measure what the receiving instance can actually do.
+
+**Never-repeat** concerns the expensive *acquisition of the achievement*. Reusing it might mean delivering a result, running code, or resuming a capable instance. The three resources can generate and improve one another. ECOmpile chooses a compatible route based on both delivery cost and the expected value of future reuse.
 
 **Never repeat an achievement unnecessarily.**
 
@@ -21,28 +23,30 @@ The word *state* includes several different kinds of achievement. Preserve only 
 - **Completed result:** an output artifact, finished analysis, code change, rendered media, calculation, or other deliverable.
 - **Recoverable working position:** verified inputs, checkpoints, dependencies, tools, and execution position sufficient to continue or restore work.
 - **Verified environment:** a software or machine configuration known to produce a required outcome.
-- **Established capability:** a reliably reproducible way of working, possibly transferable through ABCaps where a receiving runtime supports faithful reinstatement.
+- **Established capability:** an instance's verified abilities, working-memory state, and operational conditions, with evidence from the interactions in which they succeeded. ABCaps seeks to preserve and reinstate such capabilities, where a receiving runtime supports it.
 
 Sometimes the payload is a set of bytes. Sometimes it is a tiny manifest referring to content already stored through UDF. Sometimes it is a checkpoint or a reproducible environment. The descriptor may be compact even when the logical achievement is large. A summary or set of instructions alone is not automatically equivalent to a restorable state.
 
 ECOmpile records what was **actually achieved**, the circumstances of success, and how it can be delivered again. A plausible answer is not sufficient evidence of success.
 
-## The two routes and their selection
+## Three routes and their selection
 
 ```mermaid
 flowchart TD
-    A[Requested outcome and current conditions] --> B[Search reusable achievements and procedures]
-    B --> C{Cheapest verified compatible route?}
-    C -->|Preserved state| D[Retrieve or restore achieved result]
-    C -->|Partial state| E[Reuse valid part and compute difference]
-    C -->|Deterministic procedure| F[Execute tested code]
-    C -->|Novel or uncertain| G[Perform new work]
-    D --> H[Check result and delivery]
+    A[Request and environment] --> B[Find successful results, procedures and capable instances]
+    B --> C{Suitable cheapest reliable route?}
+    C -->|Result state| D[Deliver or reconstruct result]
+    C -->|Compiled procedure| E[Run validated deterministic code]
+    C -->|Capability state| F[Resume or reinstate proven ability]
+    C -->|Novel or uncertain| G[New work and discovery]
+    D --> H[Check actual outcome]
     E --> H
     F --> H
     G --> H
-    H --> I[Register newly proven achievement]
+    H --> I[Preserve result, method or improved capability]
 ```
+
+Exact-result, partial-result and capability reuse may all include small adaptations. Cost comparison includes preparation and delivery, not just execution. A cultivated instance is especially valuable when many *different* future tasks require the same hard-won ability rather than an identical stored result.
 
 ### When state wins
 
@@ -62,9 +66,41 @@ Persist reusable macro states and execute inexpensive supporting code only for t
 
 Example: a previously completed software repair includes a verified configuration. A small deterministic adjustment adapts that configuration to a compatible machine; the new successful configuration is preserved for future reuse.
 
+### When a cultivated instance wins
+
+A model has acquired abilities through examples, exploration, corrections and successful work that would be expensive to repeat for each new request. A verified instance state (including working memory when available) can serve many related but nonidentical tasks. This is **capability reuse**, distinct from delivering a previously solved task's result.
+
+Example: an agent has been guided through difficult audio alignment cases and now reliably performs a class of alignment work. Preserve the achieved operating ability, not merely the last aligned file. Resume it for new audio, and measure whether it retains the demonstrated competence.
+
 ### When fresh work wins
 
 Relevant conditions have changed, compatibility cannot be established, the needed result does not exist, or the cost of validating a reuse candidate exceeds direct execution. Solve the task normally, test its outcome, and consider preserving what genuinely worked.
+
+## Successful logs, models, and cultivated instances
+
+A successful interaction history is not only documentation. It is evidence about **which model achieved which abilities under which conditions**. The log should be paired with the model identity, version, runtime settings, available tools, corrections, evaluations and resulting working-memory or recoverable execution state.
+
+A log can be used in three ways:
+
+1. **Reinstate:** resume the original instance's checkpoint when the runtime actually supports this; otherwise provide a compatible ABCaps representation, then demonstrate retained ability on new tasks.
+2. **Reproduce:** run the established interaction or training sequence against the same model and compare resulting abilities and outputs. This is a reconstruction experiment, not guaranteed replay of hidden model state.
+3. **Transfer or improve:** expose an updated or different model to the successful history, observe the state and ability it develops, and compare against both the original instance and the new model without that history. New model versions may require less teaching, respond differently, or regress.
+
+The valuable record is a **model–experience–capability pairing**, not just a transcript:
+
+| Part | What it establishes |
+| --- | --- |
+| Model and runtime | Exact model ID/version where known, settings, tools, environment |
+| Interaction history | Task, decisions, demonstrations, corrections, successful turns, source references |
+| Observed achievements | Finished outputs, quality checks, and measurable ability on new tasks |
+| Working-memory state | Actual checkpoint, tool state, accessible session state, or ABCaps-compatible representation; record which is real |
+| Transfer evidence | Recipient model/version, restoration or conditioning method, repeated task results and limitations |
+
+Retain successful paths and the corrections that made them work. When a better model can achieve the same ability with fewer steps, the shorter successful path becomes a new reusable resource. When combining two cultivated instances improves performance, record both source histories and the tested combined result.
+
+A prior log can influence a new model without restoring the original model's private hidden activations. ECOmpile should distinguish **faithful checkpoint restoration**, **reconstruction from experience**, and **behavioral transfer verified by tests**. Their costs and guarantees differ.
+
+This is where ABCaps fits most naturally: **the resource is an acquired ability**, with the successful working state that made it possible—not a single finished file, and not simply a textual description of how to behave.
 
 ## Cost model
 
@@ -74,9 +110,11 @@ Evaluate **total cost of a correct delivered outcome**, not model inference alon
 
 `C(code) = lookup + execution + verification + amortized implementation/maintenance cost`
 
+`C(capability) = lookup + state load or reconstruction + continued execution + verification + expected adaptation cost`
+
 `C(neural) = inference + tools + verification + expected correction/retry cost`
 
-The system should choose the lowest expected cost among **routes known to satisfy the current conditions**. If the reliability evidence differs, evaluate risk as well as cost. The value of preserving a newly completed state depends on its size, reuse likelihood, retention duration, reconstructability, and potential future savings.
+The system should choose the lowest expected cost among **routes known to satisfy the current conditions**. If the reliability evidence differs, evaluate risk as well as cost. The value of preserving a newly completed state depends on its size, reuse likelihood, retention duration, reconstructability, and potential future savings. A cultivated capability may cost more to store/load than one result, yet pay off over many distinct future tasks.
 
 "Virtually no cost" refers to **avoiding expensive repeated neural work** on a validated reuse path. Lookup, bytes, execution, integrity checks, and delivery still have measurable costs.
 
@@ -102,7 +140,9 @@ Choose one completed, expensive task whose input and output can be inspected exa
 2. Repeat the identical request by delivering the retained achievement; compare content, relevance, latency, total resource cost, and delivery success.
 3. Change one meaningful input; reuse the valid part of the previous state, perform only the necessary work, and compare the result with a fresh execution.
 4. Implement one recurring sub-operation as ordinary deterministic code; compare repeated execution with both neural inference and storing many separate results.
-5. Repeat the cases across controlled variations to expose false matches, stale states, unexpected side effects, and the actual cost crossover.
+5. Pair a successful interaction history with the exact model/version that produced it. Test a genuine restored checkpoint when available, then a reconstructed or ABCaps-conditioned instance on *new* tasks requiring the same ability.
+6. Repeat the successful history with an updated model; measure whether the acquired capability is retained, improved, or lost compared with both the original model and the updated model's own baseline.
+7. Repeat the cases across controlled variations to expose false matches, stale states, unexpected side effects, and the actual cost crossover.
 
 The first tests should distinguish reliability **of exact state delivery** from reliability **of matching or adapting a state**. A high success rate in the first does not prove the others.
 
@@ -111,7 +151,7 @@ The first tests should distinguish reliability **of exact state delivery** from 
 - **Existing ECOmpile:** kernels and routing based on successful actions are a beginning for the deterministic-code route.
 - **ECOmpile V2:** ingestion, outcome extraction, convergence mining, explicit activation decisions, and deterministic templates offer components to reuse. The repository does not yet demonstrate a general persistent achievement-state registry, exact-match state delivery, checkpoint restoration, or the comparative experiments above.
 - **UDF:** may supply content-addressed storage, manifests, retrieval and on-demand materialization without retaining multiple physical copies.
-- **ABCaps:** may supply portable working capabilities where transfer has been demonstrated.
+- **ABCaps:** concerns cultivated instance abilities and their working-memory states, distinct from single finished results. Portable capability transfer remains subject to demonstration on each receiving model/runtime.
 - **ASOSOS:** can use ECOmpile to reuse achievements across other systems, not just to optimize individual AI prompts.
 
-The larger invention is not a model that merely remembers the answer. It is a system in which **a result already earned can become the next task's starting position, or the result itself**.
+The larger invention is not a model that merely remembers the answer. It is a system in which **a result already earned becomes directly available; a repeated operation becomes cheap code; and an ability already developed can become the next instance's starting capability**.
